@@ -151,19 +151,3 @@ Database file:
 ```text
 users.db
 ```
-
----
-
-# Future Improvements
-
-* Login authentication
-* Online booking
-* Admin dashboard
-* Payment integration
-* Membership management
-
----
-
-# Author
-
-Developed for learning full stack development concepts including frontend, backend, APIs, and database integration.
