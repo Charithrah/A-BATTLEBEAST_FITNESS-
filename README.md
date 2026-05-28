@@ -2,47 +2,66 @@
 
 ## Introduction
 
-Battle Beast Fitness Studio is a full stack fitness website developed as a modern web application for managing user registrations and providing information about gym facilities, membership plans, trainers, services, and customer engagement.
+Battle Beast Fitness Studio is a full stack fitness web application developed to provide an interactive platform for gym members and visitors. The application allows users to explore membership plans, trainers, services, reviews, and register through an online form.
 
-This project was developed as part of learning full stack development concepts by integrating frontend and backend technologies together. The application provides an interactive interface for users while securely storing registration details in a database.
-
-### About Thiranity Tech
-
-Thiranity Tech is a technology-focused company that works on software development and digital solutions across multiple domains. The company emphasizes practical implementation, real-world problem solving, and modern technology stacks to build scalable applications.
+The project integrates frontend and backend technologies to create a complete working application where user registration data is stored in a database.
 
 ---
 
-## Technologies Used
+## About Thiranity Tech
 
-### Frontend
+Thiranity Tech focuses on developing practical technology solutions and encourages learning through real-world project implementation. This project demonstrates integration between frontend, backend, APIs, and database systems.
+
+---
+
+# Technologies Used
+
+## Frontend
 
 * React.js
 * CSS
 
-### Backend
+## Backend
 
-* Node.js
-* Express.js
+* FastAPI
+* Python
 
-### Database
+## Database
 
 * SQLite
 
 ---
 
+# Features
+
+* Modern fitness landing page
+* Responsive UI
+* Membership plans section
+* Trainer information
+* Customer reviews
+* Registration form
+* Backend API integration
+* SQLite database storage
+
+---
+
 # Project Structure
 
-Battle Beast Fitness Studio/
+```text
+BattleBeast/
 
 frontend/
 
 backend/
 
+users.db
+```
+
 ---
 
 # Running Frontend
 
-Move inside frontend folder:
+Move to frontend folder:
 
 ```bash
 cd frontend
@@ -54,15 +73,15 @@ Install dependencies:
 npm install
 ```
 
-Start frontend:
+Start React application:
 
 ```bash
 npm start
 ```
 
-Frontend runs at:
+Frontend runs on:
 
-```bash
+```text
 http://localhost:3000
 ```
 
@@ -70,57 +89,81 @@ http://localhost:3000
 
 # Running Backend
 
-Move inside backend folder:
+Move to backend folder:
 
 ```bash
 cd backend
 ```
 
-Install dependencies:
+Install required packages:
 
 ```bash
-npm install
+pip install fastapi uvicorn pydantic
 ```
 
-Start backend:
+Start backend server:
 
 ```bash
-node server.js
+uvicorn main:app --reload
 ```
 
-Backend runs at:
+Backend runs on:
 
-```bash
-http://localhost:5000
+```text
+http://127.0.0.1:8000
+```
+
+---
+
+# API Endpoints
+
+Submit user data:
+
+```text
+POST /submit
+```
+
+View stored users:
+
+```text
+GET /data
+```
+
+Example:
+
+```text
+http://127.0.0.1:8000/data
 ```
 
 ---
 
 # Database
 
-SQLite is used to store user registration details.
+SQLite database is used for storing user registration details.
 
-Database file:
-
-```bash
-users.db
-```
-
-Stored information includes:
+Stored Information:
 
 * Name
 * Email
-* User registrations
+
+Database file:
+
+```text
+users.db
+```
 
 ---
 
-# Features
+# Future Improvements
 
-* Modern fitness landing page
-* Responsive design
-* Membership packages
-* Trainer information
-* Customer reviews
-* Registration form
-* Backend integration
-* Database storage using SQLite
+* Login authentication
+* Online booking
+* Admin dashboard
+* Payment integration
+* Membership management
+
+---
+
+# Author
+
+Developed for learning full stack development concepts including frontend, backend, APIs, and database integration.
