@@ -1,72 +1,126 @@
-# Getting Started with Create React App
+# Battle Beast Fitness Studio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+Battle Beast Fitness Studio is a full stack fitness website developed as a modern web application for managing user registrations and providing information about gym facilities, membership plans, trainers, services, and customer engagement.
 
-In the project directory, you can run:
+This project was developed as part of learning full stack development concepts by integrating frontend and backend technologies together. The application provides an interactive interface for users while securely storing registration details in a database.
 
-### `npm start`
+### About Thiranity Tech
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Thiranity Tech is a technology-focused company that works on software development and digital solutions across multiple domains. The company emphasizes practical implementation, real-world problem solving, and modern technology stacks to build scalable applications.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frontend
 
-### `npm run build`
+* React.js
+* CSS
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Backend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Node.js
+* Express.js
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Database
 
-### `npm run eject`
+* SQLite
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Battle Beast Fitness Studio/
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+frontend/
 
-## Learn More
+backend/
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Running Frontend
 
-### Code Splitting
+Move inside frontend folder:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+cd frontend
+```
 
-### Analyzing the Bundle Size
+Install dependencies:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm install
+```
 
-### Making a Progressive Web App
+Start frontend:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm start
+```
 
-### Advanced Configuration
+Frontend runs at:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+http://localhost:3000
+```
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+# Running Backend
 
-### `npm run build` fails to minify
+Move inside backend folder:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+cd backend
+```
 
-advaitaa
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start backend:
+
+```bash
+node server.js
+```
+
+Backend runs at:
+
+```bash
+http://localhost:5000
+```
+
+---
+
+# Database
+
+SQLite is used to store user registration details.
+
+Database file:
+
+```bash
+users.db
+```
+
+Stored information includes:
+
+* Name
+* Email
+* User registrations
+
+---
+
+# Features
+
+* Modern fitness landing page
+* Responsive design
+* Membership packages
+* Trainer information
+* Customer reviews
+* Registration form
+* Backend integration
+* Database storage using SQLite
