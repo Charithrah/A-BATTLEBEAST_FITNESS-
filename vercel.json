@@ -1,0 +1,13 @@
+{
+  "framework": "services",
+  "experimentalServices": {
+    "frontend": {
+      "rootDirectory": "BATTLEBEAST_FITNESS",
+      "routePrefix": "/"
+    },
+    "backend": {
+      "rootDirectory": "backend",
+      "routePrefix": "/api"
+    }
+  }
+}
