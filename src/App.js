@@ -5,6 +5,8 @@ function App() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
+  // IMPORTANT: Replace this with your Render backend URL after deployment
+  const API_URL = "https://your-render-backend.onrender.com";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,19 +16,24 @@ function App() {
       return;
     }
 
-    const res = await fetch("http://127.0.0.1:8000/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, email }),
-    });
+    try {
+      const res = await fetch(`${API_URL}/submit`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email }),
+      });
 
-    const data = await res.json();
-    alert(data.message || "Submitted successfully!");
-    setName("");
-    setEmail("");
-    setSubmitted(true);
+      const data = await res.json();
+      alert(data.message || "Submitted successfully!");
+
+      setName("");
+      setEmail("");
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Failed to submit. Please try again later.");
+    }
   };
 
   const packages = [
@@ -70,7 +77,8 @@ function App() {
 
   return (
     <div className="app">
-      {/* HERO SECTION */}
+
+      {/* HERO */}
       <div className="hero">
         <div className="hero-overlay">
           <h1>BATTLE BEAST FITNESS STUDIO</h1>
@@ -79,19 +87,12 @@ function App() {
         </div>
       </div>
 
-      {/* LOCATION & AMBIENCE */}
+      {/* LOCATION */}
       <section className="location-section">
         <div className="location-content">
           <div className="location-text">
             <h2>📍 Our Location</h2>
-            <p>
-              <strong>Kunniyamuthur, Coimbatore, Tamil Nadu</strong>
-            </p>
-            <p>
-              Experience premium fitness facilities in a vibrant and welcoming
-              environment. Our gym is strategically located for easy access with
-              ample parking.
-            </p>
+            <p><strong>Kunniyamuthur, Coimbatore, Tamil Nadu</strong></p>
 
             <a
               href="https://maps.app.goo.gl/aqSgRk7rVyyYvj4A8"
@@ -114,81 +115,24 @@ function App() {
       {/* ABOUT */}
       <section className="about-section">
         <h2>About Battle Beast Fitness Studio</h2>
-
         <p>
-          Battle Beast Fitness Studio is a modern and well-equipped gym designed
-          with state-of-the-art equipment and a motivating atmosphere. We
-          provide a clean, hygienic, and spacious workout environment where
-          fitness enthusiasts can achieve their goals with professional guidance
-          and community support.
+          Modern gym with professional equipment, clean environment, and expert trainers.
         </p>
       </section>
 
-      {/* WHY CHOOSE US */}
+      {/* FEATURES */}
       <section className="features-section">
         <h2>Why Choose Us</h2>
 
         <div className="features-grid">
-          <div className="feature-card">
-            <span className="icon">🏋️</span>
-            <h3>Modern Equipment</h3>
-            <p>
-              State-of-the-art training equipment for all fitness levels
-            </p>
-          </div>
-
-          <div className="feature-card">
-            <span className="icon">✨</span>
-            <h3>Clean Environment</h3>
-            <p>Hygienic and well-maintained facilities</p>
-          </div>
-
-          <div className="feature-card">
-            <span className="icon">👨‍🏫</span>
-            <h3>Expert Trainers</h3>
-            <p>Knowledgeable and supportive fitness professionals</p>
-          </div>
-
-          <div className="feature-card">
-            <span className="icon">💪</span>
-            <h3>Personalized Plans</h3>
-            <p>Customized workout and diet programs</p>
-          </div>
+          <div className="feature-card">🏋️ Modern Equipment</div>
+          <div className="feature-card">✨ Clean Environment</div>
+          <div className="feature-card">👨‍🏫 Expert Trainers</div>
+          <div className="feature-card">💪 Personalized Plans</div>
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section className="services-section">
-        <h2>Our Services</h2>
-
-        <div className="services-list">
-          <div className="service-item">
-            Weight Training & Muscle Building
-          </div>
-
-          <div className="service-item">
-            Cardio & Fat Loss Programs
-          </div>
-
-          <div className="service-item">
-            Strength & Endurance Training
-          </div>
-
-          <div className="service-item">
-            Personal Training Sessions
-          </div>
-
-          <div className="service-item">
-            Customized Diet & Fitness Guidance
-          </div>
-
-          <div className="service-item">
-            Group Fitness Classes
-          </div>
-        </div>
-      </section>
-
-      {/* GYM PACKAGES */}
+      {/* PACKAGES */}
       <section className="packages-section">
         <h2>Membership Plans</h2>
 
@@ -196,14 +140,8 @@ function App() {
           {packages.map((pkg, index) => (
             <div key={index} className="package-card">
               <h3>{pkg.name}</h3>
-
-              <div className="package-price">{pkg.price}</div>
-
-              <p className="package-validity">{pkg.validity}</p>
-
-              <p className="package-note">
-                Offer valid for full payment
-              </p>
+              <p>{pkg.price}</p>
+              <p>{pkg.validity}</p>
 
               <button className="book-btn">Book Now</button>
             </div>
@@ -215,46 +153,27 @@ function App() {
       <section className="trainers-section">
         <h2>Expert Trainers</h2>
 
-        <p className="section-subtitle">
-          Our certified trainers provide guidance, proper posture, motivation,
-          and personalized fitness plans
-        </p>
-
         <div className="trainers-grid">
-          {trainers.map((trainer, index) => (
-            <div key={index} className="trainer-card">
-              <h3>{trainer.name}</h3>
-
-              <p className="trainer-specialty">
-                {trainer.specialty}
-              </p>
-
-              <p className="trainer-experience">
-                Experience: {trainer.experience}
-              </p>
+          {trainers.map((t, i) => (
+            <div key={i} className="trainer-card">
+              <h3>{t.name}</h3>
+              <p>{t.specialty}</p>
+              <p>{t.experience}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* CUSTOMER REVIEWS */}
+      {/* REVIEWS */}
       <section className="reviews-section">
         <h2>Customer Reviews</h2>
 
         <div className="reviews-grid">
-          {reviews.map((review, index) => (
-            <div key={index} className="review-card">
-              <div className="review-stars">
-                {"⭐".repeat(review.rating)}
-              </div>
-
-              <p className="review-text">
-                "{review.review}"
-              </p>
-
-              <p className="review-author">
-                — {review.name}
-              </p>
+          {reviews.map((r, i) => (
+            <div key={i} className="review-card">
+              <p>{"⭐".repeat(r.rating)}</p>
+              <p>"{r.review}"</p>
+              <p>- {r.name}</p>
             </div>
           ))}
         </div>
@@ -263,10 +182,7 @@ function App() {
       {/* CONTACT */}
       <section className="contact-section">
         <h2>Get In Touch</h2>
-
-        <p className="contact-phone">
-          📞 Phone: 9363070998
-        </p>
+        <p>📞 9363070998</p>
       </section>
 
       {/* FORM */}
@@ -279,7 +195,6 @@ function App() {
             placeholder="Enter your name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="form-input"
           />
 
           <input
@@ -287,24 +202,15 @@ function App() {
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="form-input"
           />
 
-          <button type="submit" className="submit-btn">
-            Submit
-          </button>
+          <button type="submit">Submit</button>
         </form>
       </section>
 
       {/* FOOTER */}
       <footer className="footer">
-        <p>
-          &copy; 2024 Battle Beast Fitness Studio. All rights reserved.
-        </p>
-
-        <p>
-          Kunniyamuthur, Coimbatore | Phone: 9363070998
-        </p>
+        <p>© 2024 Battle Beast Fitness Studio</p>
       </footer>
     </div>
   );
