@@ -4,7 +4,7 @@ import "./App.css";
 function App() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
